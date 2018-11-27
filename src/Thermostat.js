@@ -1,3 +1,6 @@
+var test = "connected";
+alert(test);
+
 function Thermostat(){
   this.MINIMUM_TEMPERATURE = 10;
   this.MAX_LIMIT_PSM_ON = 25;
