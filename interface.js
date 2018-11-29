@@ -1,26 +1,17 @@
 var thermostat = new Thermostat();
 var appid = "568fdba9d2d7ad142caba952501ad68a";
 var city = "london"
-// https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=568fdba9d2d7ad142caba952501ad68a&units=metric&callback=?
 
 function getLocation() {
-
-  // $.getJSON('https://geoip-db.com/json/geoip.php?jsonp=?')
-  //       .done (function(location)
-  //       {
-          var weatherLink = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appid + "&units=metric&callback=?";
-          $.ajax({
-              url: weatherLink,
-              dataType: "jsonp",
-              success: function(response) {
-                $('#LondonTemp').text(response.main.temp + " degrees celcius");
-                // return response.main.temp;
-                //   $('body').append(response);
-              }
-          });
-
-        // });
-    }
+  var weatherLink = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appid + "&units=metric&callback=?";
+  $.ajax({
+    url: weatherLink,
+    dataType: "jsonp",
+    success: function(response) {
+    $('#LondonTemp').text(response.main.temp + " degrees celcius");
+  }
+ });
+}
 
 $(document).ready(function(){
   $('#temperature').text(thermostat.temperature);
